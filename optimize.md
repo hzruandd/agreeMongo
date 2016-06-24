@@ -9,17 +9,16 @@
 
    第二步：
    使用root用户权限登录：
-
-   vim /etc/profile
+    vim /etc/profile
 
    添加以下命令：
 
-  ulimit -f unlimited
-  ulimit -t unlimited
-  ulimit -v unlimited
-  ulimit -n 64000
-  ulimit -m unlimited
-  ulimit -u 32000
+    ulimit -f unlimited
+    ulimit -t unlimited
+    ulimit -v unlimited
+    ulimit -n 64000
+    ulimit -m unlimited
+    ulimit -u 32000
 
 #############
 AND类型查找考虑点
@@ -43,7 +42,7 @@ MongoDB的复制是不能修复这些损坏数据滴。
 开发环境可以使用--notablscan选项---如果全表扫描就返回错误，有索引则正常。但是在生产环境就不能使用这个选项了
 了，因为在线上常常要做的很多管理任务都要表扫描。
 ################
-创建启动文件----假如做一些shell维护工作，比如避免删数据库，集合，文档：
+##创建启动文件----假如做一些shell维护工作，比如避免删数据库，集合，文档：
 //no-delete.js
     delete DBCollection.prototype.drop;
     delete DBCollection.prototype.remove;
