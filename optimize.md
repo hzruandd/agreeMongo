@@ -1,10 +1,11 @@
-针对mongodb的warnning的系统级别的优化：
+针对mongodb系统级别的优化：
+=====================================
 
    第一步：
   使用root用户权限登录：
 
-   echo "never" > /sys/kernel/mm/transparent_hugepage/enabled
-   echo "never" > /sys/kernel/mm/transparent_hugepage/defrag
+    echo "never" > /sys/kernel/mm/transparent_hugepage/enabled
+    echo "never" > /sys/kernel/mm/transparent_hugepage/defrag
 
    第二步：
    使用root用户权限登录：
@@ -44,11 +45,11 @@ MongoDB的复制是不能修复这些损坏数据滴。
 ################
 创建启动文件----假如做一些shell维护工作，比如避免删数据库，集合，文档：
 //no-delete.js
-delete DBCollection.prototype.drop;
-delete DBCollection.prototype.remove;
-delete DB.prototype.dropDatabase;
+    delete DBCollection.prototype.drop;
+    delete DBCollection.prototype.remove;
+    delete DB.prototype.dropDatabase;
 // mongo no-delete.js
-> db.test.drop() ///Users/jake/agree db.test.drop() is not a function.
+    db.test.drop() ///Users/jake/agree db.test.drop() is not a function.
 
 此时还想删除集合，就可以执行db.$cmd.findOne({drop: "test"})
 如果连这个都不让执行了，那就把find()也删掉，不过此时shell也就干不了啥了。
