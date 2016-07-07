@@ -2,8 +2,8 @@
 Mongo Docs
 企业部署脚本
 
-这里分享如何快速部署mongodb
-sharding测试集至localhost，在线上环境，只需要做部分修改即可。
+这里分享如何在本地快速部署mongoDB
+Sharding、Replica Set。在线上环境，只需要做部分修改即可。
 
 端口使用说明：
 
