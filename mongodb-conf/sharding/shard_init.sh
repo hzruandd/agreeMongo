@@ -1,10 +1,10 @@
 #规划5个组件对应的端口号，由于一个机器需要同时部署 mongos、config server 、shard1、shard2、shard3，所以需要用端口进行区分。
 #这个端口可以自由定义，在本文 mongos为 20000， config server 为 21000， shard1为 22001 ， shard2为22002， shard3为22003
 #
-SERVER_IP1 = 10.9.1.199
-SERVER_IP2 = 10.9.1.197
-SERVER_IP3 = 10.9.1.195
-MONGOS_PORT = 21000
+SERVER_IP1=10.9.1.199
+SERVER_IP2=10.9.1.197
+SERVER_IP3=10.9.1.195
+MONGOS_PORT=21000
 
 set -ex
 mkdir -p /home/mongoshard/data/db

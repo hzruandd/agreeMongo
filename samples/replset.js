@@ -15,3 +15,19 @@ db.runCommand({ "replSetInitiate" :
   ]
   }
 })
+
+//有两种方法实现从机的查询：
+//第一种方法：db.getMongo().setSlaveOk();
+//第二种方法：rs.slaveOk();
+//
+//
+//
+//cfg = rs.conf()
+//cfg.members[0].priority = 1
+//cfg.members[1].priority = 2
+//cfg.members[2].priority = 1
+//rs.reconfig(cfg)
+//
+//
+//
+

@@ -18,7 +18,45 @@
     ulimit -v unlimited
     ulimit -n 64000
     ulimit -m unlimited
-    ulimit -u 32000
+    ulimit -u 64000
+
+#关闭数据库文件的 atime
+
+通过在 /etc/fstab 文件中增加 noatime 参数来实现。例如:
+/dev/xvdb /data ext4 noatime 0 0
+
+修改完文件后重新 mount就可以:
+
+    mount -o remount /data
+
+#IO优化
+
+
+##IO调度算法
+IO调度算法都是基于磁盘设计，所以减少磁头移动是最重要的考虑因素之一。完全随机的访问环境下，
+系统一般默认的CFQ就不太合适了，建议改为Deadline或者NOOP。
+    echo ‘deadline’ > /sys/block/[device]/queue/scheduler
+
+##预读值(readahead)设置
+###减少预读,默认128
+
+    echo '32' > /sys/block/sda/queue/read_ahead_kb
+or
+    blockdev --setra 32 /dev/sda
+###增大队列,默认128
+
+    echo ’512′ > /sys/block/sda/queue/nr_requests
+
+####如果想让上面的设置，开机运行，那就把他们添加到 /etc/rc.local
+
+
+###尽量不使用交换区,默认60
+
+    echo ’10′ > /proc/sys/vm/swappiness
+####如果想让上面的设置，开机运行，那就把他们添加到 /etc/sysctl.conf
+
+
+
 
 #############
 AND类型查找考虑点
