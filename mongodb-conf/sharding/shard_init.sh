@@ -43,7 +43,7 @@ pwd
 cd /home/rdd/3.2.6-mongo
 pwd
 
-./bin/mongos  --configdb $SERVER_IP1:$MONGOS_PORT,$SERVER_IP2:$MONGOS_PORT, $SERVER_IP3:$MONGOS_PORT \
+./bin/mongo  --configdb $SERVER_IP1:$MONGOS_PORT,$SERVER_IP2:$MONGOS_PORT, $SERVER_IP3:$MONGOS_PORT \
  --port 20000   --logpath  /home/mongoshard/mongos/log/mongos.log --fork
 
 ##thrid, set every shard's replset
