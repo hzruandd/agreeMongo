@@ -2,7 +2,7 @@
 //mongos 路由服务器并不能使用分片机制，还需要在程序里设置分片配置，让分片生效。
 
 //连接到mongos
-/home/rdd/3.2.6-mongo/bin/mongos  127.0.0.1:20000
+/home/rdd/3.2.6-mongo/bin/mongo  127.0.0.1:20000
 //使用admin数据库
 user  admin
 //串联路由服务器与分配副本集1

@@ -1,3 +1,7 @@
+#测试磁盘的读写，建议测试至少3次以上，当前可用内存必须大于要写入的文件
+dd if=/dev/zero of=/tmp/rdd.log bs=2048M count=1 conv=fdatasync
+dd if=/tmp/rdd.log of=/dev/zero bs=2048M count=1 iflag=direct
+
 
 #获取机器型号，厂商，序列号信息
 dmidecode | grep -B 4 "Serial Number"  | head -n 11

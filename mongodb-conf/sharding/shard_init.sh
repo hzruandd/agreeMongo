@@ -10,6 +10,20 @@ set -ex
 mkdir -p /home/mongoshard/data/db
 mkdir -p /home/mongoshard/log
 
+"""
+127,128,129 mongos and mongoconfig;
+
+125,126,140 shard1;
+
+115,116,117 shard2;
+
+118,119,141 shard3;
+
+
+140,117,141 arbiterOnly;
+
+10.8.6.113,123,124 client;
+"""
 
 #create mongos dir
 mkdir -p /home/mongoshard/mongos/log
@@ -43,7 +57,7 @@ pwd
 cd /home/rdd/3.2.6-mongo
 pwd
 
-./bin/mongo  --configdb $SERVER_IP1:$MONGOS_PORT,$SERVER_IP2:$MONGOS_PORT, $SERVER_IP3:$MONGOS_PORT \
+./bin/mongos  --configdb $SERVER_IP1:$MONGOS_PORT,$SERVER_IP2:$MONGOS_PORT, $SERVER_IP3:$MONGOS_PORT \
  --port 20000   --logpath  /home/mongoshard/mongos/log/mongos.log --fork
 
 ##thrid, set every shard's replset

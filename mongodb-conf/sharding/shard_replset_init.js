@@ -21,9 +21,9 @@ rs.initiate(config);
 use admin
 #定义副本集配置
 config = { _id:"shard2", members:[
-                     {_id:0,host:"10.9.1.199:22002"},
+                     {_id:0,host:"10.9.1.199:22002", arbiterOnly:true},
                      {_id:1,host:"10.9.1.197:22002"},
-                     {_id:2,host:"10.9.1.195:22002",arbiterOnly:true}
+                     {_id:2,host:"10.9.1.195:22002"}
                 ]
          }
 #初始化副本集配置
@@ -41,8 +41,8 @@ use admin
 #定义副本集配置
 config = { _id:"shard3", members:[
                      {_id:0,host:"10.9.1.199:22003"},
-                     {_id:1,host:"10.9.1.197:22003"},
-                     {_id:2,host:"10.9.1.195:22003",arbiterOnly:true}
+                     {_id:1,host:"10.9.1.197:22003", arbiterOnly:true},
+                     {_id:2,host:"10.9.1.195:22003"}
                 ]
          }
 
