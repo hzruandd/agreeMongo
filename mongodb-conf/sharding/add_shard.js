@@ -71,6 +71,4 @@ db.runCommand( { addshard : "example.net:34008", maxSize : 125 } )
 use config
 db.shards.update( { _id : "shard0000" }, { $set : { maxSize : 250 } } )
 
-//http://my.oschina.net/costaxu/blog/196980---ok
-
-
+//http://my.oschina.net/costaxu/blog/196980
